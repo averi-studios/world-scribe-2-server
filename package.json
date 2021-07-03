@@ -1,0 +1,50 @@
+{
+  "name": "world-scribe-2-server",
+  "version": "1.0.0",
+  "description": "REST API server and backend for World Scribe 2: A productvity tool to help worldbuilders with organizing their fictional worlds",
+  "main": "app.js",
+  "scripts": {
+    "start": "node start.js",
+    "rebuild": "electron-rebuild -f -w sqlite3",
+    "heroku-postbuild": "cd world_scribe_react && npm install --only=dev && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/averi-studios/world-scribe-2-server.git"
+  },
+  "author": "Averi Studios Inc.",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/averi-studios/world-scribe-2-server/issues"
+  },
+  "homepage": "https://github.com/averi-studios/world-scribe-2-server#readme",
+  "engines": {
+    "node": ">=14.14.0 <=14.14.0"
+  },
+  "dependencies": {
+    "base64url": "^3.0.1",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "multer": "^1.4.1",
+    "request": "^2.88.0",
+    "sequelize": "^4.43.0",
+    "sqlite3": "^5.0.2",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^2.3.5"
+  },
+  "keywords": [
+    "worldbuilding",
+    "writing",
+    "productivity",
+    "nodejs",
+    "express",
+    "rest",
+    "sequelize",
+    "sqlite"
+  ]
+}
