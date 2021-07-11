@@ -27,3 +27,8 @@
 
 The server should now be active at http://localhost:49000.
 
+
+
+## Documentation for Dependencies
+
+- [Sequelize v4](https://sequelize.org/v4/)
