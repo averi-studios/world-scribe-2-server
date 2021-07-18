@@ -125,6 +125,18 @@ module.exports = function(app) {
                 });
     });
 
+    // CURL --request PATCH 'http://localhost:49000/api/categories/1/rename' --header 'Content-Type: application/json' --data-raw '{ "name": "villains" }'
+    app.patch('/api/categories/:categoryId/rename', checkId, function(req, res, next) {
+        app.locals.repository.Category.renameCategory(req.params.categoryId, req.body.name)
+            .then(function (category) {
+                return res.json(category);
+            },
+                function (error) {
+                    // console.log(error.toString());
+                    return res.status(error.status).end(error.message);
+                });
+    });
+
     // CURL -X DELETE http://localhost:8080/api/categories/:categoryId/
     app.delete('/api/categories/:categoryId/', checkId, function(req, res, next) {
         app.locals.repository.Category.getArticlesInCategory(req.params.categoryId)

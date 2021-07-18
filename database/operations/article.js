@@ -97,7 +97,6 @@ module.exports = (Sequelize, sequelize, Models) => {
         return article;
     }
 
-
     Article.deleteArticle = async function(articleId) {
         let deletedArticle = await Article.findOne({
             where: { id: articleId },
