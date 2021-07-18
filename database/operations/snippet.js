@@ -58,6 +58,20 @@ module.exports = (Sequelize, sequelize, Models) => {
         return snippet;
     }
 
+    Snippet.renameSnippet = async function(articleId, snippetId, name) {
+        let snippet = await Snippet.findOne({
+            where: { id: snippetId, articleId: articleId }
+        });
+        if (!snippet) {
+            throw new Error(`snippet '${snippetId}' does not exist`);
+        }
+        if (name && !(name === snippet.name)) {
+            snippet.name = name;
+            snippet.save();
+        }
+        return snippet;
+    }
+
     Snippet.deleteSnippet = async function(articleId, snippetId) {
         let deletedSnippet = await Snippet.findOne({
             where: { id: snippetId, articleId: articleId },

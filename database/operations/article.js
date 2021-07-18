@@ -83,6 +83,20 @@ module.exports = (Sequelize, sequelize, Models) => {
         }
     };
 
+    Article.renameArticle = async function(articleId, name) {
+        let article = await Article.findOne({
+            where: { id: articleId }
+        });
+        if (!article) {
+            throw new Error(`Article '${articleId}' does not exist`);
+        }
+        if (name && !(name === article.name)) {
+            article.name = name;
+            article.save();
+        }
+        return article;
+    }
+
 
     Article.deleteArticle = async function(articleId) {
         let deletedArticle = await Article.findOne({
