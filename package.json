@@ -1,6 +1,6 @@
 {
   "name": "world-scribe-2-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "REST API server and backend for World Scribe 2: A productvity tool to help worldbuilders with organizing their fictional worlds",
   "main": "app.js",
   "scripts": {
