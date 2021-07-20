@@ -69,6 +69,24 @@ module.exports = function(app) {
                 });
     });
 
+    // CURL --request PATCH 'http://localhost:49000/api/snippets/1/name' --header 'Content-Type: application/json' --data-raw '{ "name": "escape" }'
+    app.patch('/api/articles/:articleId/snippets/:snippetId/name', checkId, function (req, res, next) {
+        app.locals.repository.Snippet.renameSnippet(
+            req.params.articleId,
+            req.params.snippetId,
+            req.body.name
+        ).then(
+            function (snippet) {
+                return res.json(snippet);
+            },
+            function (error) {
+                //console.log(error.toString());
+                return res.status(error.status).end(error.message);
+            }
+        );
+    }
+    );
+
     // CURL -X DELETE http://localhost:8080/api/articles/:articleId/snippets/:snippetId/
     app.delete('/api/articles/:articleId/snippets/:snippetId/', checkId, function(req, res, next) {
         app.locals.repository.Snippet.deleteSnippet(req.params.articleId, req.params.snippetId)

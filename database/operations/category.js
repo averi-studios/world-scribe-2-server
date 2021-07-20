@@ -202,6 +202,20 @@ module.exports = (Sequelize, sequelize, Models) => {
         return category.toJSON();
     };
 
+    Category.renameCategory = async function(categoryId, name) {
+        let category = await Category.findOne({
+            where: { id: categoryId }
+        });
+        if (!category) {
+            throw new Error(`Category '${categoryId}' does not exist`);
+        }
+        if (name && !(name === category.name)) {
+            category.name = name;
+            category.save();
+        }
+        return category;
+    }
+
     Category.deleteCategory = async function(categoryId) {
         let deletedCategory = await Category.findOne({
             where: { id: categoryId },
