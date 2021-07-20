@@ -146,8 +146,8 @@ module.exports = function(app) {
                 });
     });
 
-    // CURL --request PATCH 'http://localhost:49000/api/articles/1/rename' --header 'Content-Type: application/json' --data-raw '{ "name": "The Boy" }'
-    app.patch('/api/articles/:articleId/rename', checkId, function(req, res, next) {
+    // CURL --request PATCH 'http://localhost:49000/api/articles/1/name' --header 'Content-Type: application/json' --data-raw '{ "name": "The Boy" }'
+    app.patch('/api/articles/:articleId/name', checkId, function(req, res, next) {
         app.locals.repository.Article.renameArticle(req.params.articleId, req.body.name)
             .then(function (article) {
                 return res.json(article);

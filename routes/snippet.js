@@ -69,8 +69,8 @@ module.exports = function(app) {
                 });
     });
 
-    // CURL --request PATCH 'http://localhost:49000/api/snippets/1/rename' --header 'Content-Type: application/json' --data-raw '{ "name": "escape" }'
-    app.patch('/api/articles/:articleId/snippets/:snippetId/rename', checkId, function (req, res, next) {
+    // CURL --request PATCH 'http://localhost:49000/api/snippets/1/name' --header 'Content-Type: application/json' --data-raw '{ "name": "escape" }'
+    app.patch('/api/articles/:articleId/snippets/:snippetId/name', checkId, function (req, res, next) {
         app.locals.repository.Snippet.renameSnippet(
             req.params.articleId,
             req.params.snippetId,

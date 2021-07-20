@@ -125,8 +125,8 @@ module.exports = function(app) {
                 });
     });
 
-    // CURL --request PATCH 'http://localhost:49000/api/categories/1/rename' --header 'Content-Type: application/json' --data-raw '{ "name": "villains" }'
-    app.patch('/api/categories/:categoryId/rename', checkId, function(req, res, next) {
+    // CURL --request PATCH 'http://localhost:49000/api/categories/1/name' --header 'Content-Type: application/json' --data-raw '{ "name": "villains" }'
+    app.patch('/api/categories/:categoryId/name', checkId, function(req, res, next) {
         app.locals.repository.Category.renameCategory(req.params.categoryId, req.body.name)
             .then(function (category) {
                 return res.json(category);
