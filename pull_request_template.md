@@ -3,22 +3,22 @@
 
 Please include a summary of your contribution.
 
-
 # Checklist
 
 ## General
 
-- [ ] I have verified that all 3 components of the app are active after running `npm start`: the React server at http://localhost:490001, the backend server at http://localhost:49000, and the World Scribe 2 application window.
-- [ ] I have verified that communication between the application and the backend server is still working (e.g. by verifying that the application is making HTTP requests and receiving responses). 
+- [ ] Where applicable, I have logged errors that may be useful for troubleshooting to console.log().
 
-## UI Changes
+## Route Changes
 
-- [ ] I have verified that all affected components are visible and responsive when the application window is maximized.
-- [ ] Where applicable, I display informative error messages to the user.
+- [ ] I have verified that the root route (http://localhost:49000/) responds to a GET request with a 200 response.
+- [ ] I have verified that the affected route(s) respond to inputs (including erroneous inputs) with the appropriate responses (including errors).
+- [ ] **For new routes:** I have verified that the new route(s) do not conflict with, or block, other routes.
 
-## Settings Changes
+## Database Changes
 
-- [ ] I have verified that ALL settings are saved properly between app sessions.
-
-- [ ] **For new settings:** I have verified that my new setting(s) appear on both the Initial Setup page and the App Settings page.
+- [ ] I have verified that my changes work on existing Worlds and do NOT corrupt .sqlite files.
+- [ ] I have verified that my changes work on newly-created Worlds.
+- [ ] **For schema changes:** I have added a migration to database/applyMigrations.js and verified that it migrates existing World databases successfully.
+- [ ] **For schema changes:** I have made the necessary changes to the appropriate Sequelize data model class(es) in the database/models folder.
 
